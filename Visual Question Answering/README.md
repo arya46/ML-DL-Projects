@@ -47,7 +47,7 @@ The dataset consists of images and open-ended questions about these images. Thes
 - We use the KERAS tokenizer to extract question features.
 
 The final input features are: 
-- image features of shape [49, dim_d], where dim_d is a hyper-parameter, and 
+- image features of shape [512,49], and 
 - question features of shape [22, ], where 22 is the sequence length of the questions after pre-processing.
 
 ## Results:
