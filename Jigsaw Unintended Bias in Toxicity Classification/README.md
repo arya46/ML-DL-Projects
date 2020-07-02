@@ -40,11 +40,11 @@ The goal of the project is to build a model that can classify the toxicity\* of 
 ![model arch](https://miro.medium.com/max/574/1*52az766UsePpIFzxsXqA1Q.png)
 
 ## Implementation Details
-- We used predefine word embeddings Crawl and Glove to encode the text sequences.
+- We used predefine word embeddings, viz [Crawl](https://dl.fbaipublicfiles.com/fasttext/vectors-english/crawl-300d-2M.vec.zip) and [Glove](http://nlp.stanford.edu/data/glove.840B.300d.zip) to encode the text sequences.
 - We use bi-directional LSTM in the model. Why bi-directional? Because they can capture information from both past and future time steps.
 - The LSTM layers are coupled with Attention (Luong's) layers. Why attention? To select the most representative word in a sentence.
 - We make two predictions with our model: target and aux_target. Why? Because, the data also has several additional toxicity subtype attributes (severe_toxicity, obscene, threat, insult, identity_attack) that are highly correlated to the target, we also use the toxicity probabilities of these auxiliary targets.
-- As such we use two different loss functions. One is used penalize the weighted target and other is used to penalize the aux_target.
+- As such we use two different loss functions: one is used to penalize the weighted target and other is used to penalize the aux_target.
 - The model is compiled with `Adam` optimizer
 - We use `LearningRateScheduler` to schedule a different learning rate at every epoch.
 - We use a batch size of 256.
