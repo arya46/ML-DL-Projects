@@ -1,15 +1,15 @@
 # Jigsaw Unintended Bias in Toxicity Classification
 ![header image](https://miro.medium.com/max/788/1*U6grgS7jsycYNrKeF9cQKQ.jpeg)
-- Overview
-- Dataset
-- Data Description
-- Project Goal
-- Architecture
-- Implementation Details
-- Results
-- Directory Tree Structure
-- Blog
-- References / Useful Resources
+- [Overview](#overview)
+- [Dataset](#dataset)
+- [Data Description](#data-description)
+- [Project Goal](#project-goal)
+- [Architecture](#architecture)
+- [Implementation Details](#implementation-details)
+- [Results](#results)
+- [Directory Tree Structure](#directory-tree-structure)
+- [Blog](#blog)
+- [References / Useful Resources](#references--useful-resources)
 
 ## Overview
 The invention of the World Wide Web connected the world in a way that was not possible before. It made much easier for people to get information, share and communicate. It allowed people to share their work and thoughts through social networking sites, blogs, video sharing, etc.
@@ -41,9 +41,9 @@ The goal of the project is to build a model that can classify the toxicity\* of 
 
 ## Implementation Details
 - We used predefine word embeddings, viz [Crawl](https://dl.fbaipublicfiles.com/fasttext/vectors-english/crawl-300d-2M.vec.zip) and [Glove](http://nlp.stanford.edu/data/glove.840B.300d.zip) to encode the text sequences.
-- We use bi-directional LSTM in the model. Why bi-directional? Because they can capture information from both past and future time steps.
-- The LSTM layers are coupled with Attention (Luong's) layers. Why attention? To select the most representative word in a sentence.
-- We make two predictions with our model: target and aux_target. Why? Because, the data also has several additional toxicity subtype attributes (severe_toxicity, obscene, threat, insult, identity_attack) that are highly correlated to the target, we also use the toxicity probabilities of these auxiliary targets.
+- We use bi-directional LSTM in the model. **Why bi-directional?** Because they can capture information from both past and future time steps.
+- The LSTM layers are coupled with Attention (Luong's) layers. **Why attention?** To select the most representative word in a sentence.
+- We make two predictions with our model: target and aux_target. **Why?** Because, the data also has several additional toxicity subtype attributes (severe_toxicity, obscene, threat, insult, identity_attack) that are highly correlated to the target, we also use the toxicity probabilities of these auxiliary targets.
 - As such we use two different loss functions: one is used to penalize the weighted target and other is used to penalize the aux_target.
 - The model is compiled with `Adam` optimizer
 - We use `LearningRateScheduler` to schedule a different learning rate at every epoch.
