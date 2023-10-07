@@ -19,7 +19,7 @@
 
     **Model Used**: Logistic Regression
 
-* [Precting Driver Attrition](https://github.com/arya46/ML-DL-Projects/tree/master/Predicting%20Driver%20Attrition): Predicting whether a driver will leave or not for ride-sharing company.
+* [Predicting Driver Attrition](https://github.com/arya46/ML-DL-Projects/tree/master/Predicting%20Driver%20Attrition): Predicting whether a driver will leave or not for ride-sharing company.
 
     **Methods Used**: Ensemble Algorithms - *Bagging* and *Boosting* models, SMOTE
 
